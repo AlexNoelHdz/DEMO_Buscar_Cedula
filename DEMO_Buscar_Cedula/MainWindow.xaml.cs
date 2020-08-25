@@ -21,8 +21,63 @@ namespace DEMO_Buscar_Cedula
     public partial class MainWindow : Window
     {
         #region Properties
-        private static readonly HttpClient client = new HttpClient();   
+        private static readonly HttpClient client = new HttpClient();
         #endregion
+
+        #region Json Object
+
+        public class Rootobject
+        {
+            public Responseheader responseHeader { get; set; }
+            public Response response { get; set; }
+        }
+
+        public class Responseheader
+        {
+            public int status { get; set; }
+            public int QTime { get; set; }
+            public Params _params { get; set; }
+        }
+
+        public class Params
+        {
+            public string facet { get; set; }
+            public string fl { get; set; }
+            public string indent { get; set; }
+            public string start { get; set; }
+            public string q { get; set; }
+            public string wt { get; set; }
+            public string rows { get; set; }
+        }
+
+        public class Response
+        {
+            public int numFound { get; set; }
+            public int start { get; set; }
+            public float maxScore { get; set; }
+            public Doc[] docs { get; set; }
+        }
+
+        public class Doc
+        {
+            public string nombre { get; set; }
+            public string id { get; set; }
+            public string numCedula { get; set; }
+            public string titulo { get; set; }
+            public string genero { get; set; }
+            public string institucion { get; set; }
+            public string materno { get; set; }
+            public int anioRegistro { get; set; }
+            public string tipo { get; set; }
+            public string paterno { get; set; }
+            public DateTime timestamp { get; set; }
+            public float score { get; set; }
+        }
+
+       
+
+        #endregion
+
         public MainWindow()
         {
             InitializeComponent();
@@ -36,7 +91,7 @@ namespace DEMO_Buscar_Cedula
                 string responseString = string.Empty;
                 responseString = await client.GetStringAsync(url);
 
-                var response = JsonConvert.DeserializeObject<SepProfessionalLicense>(responseString);
+                var response = JsonConvert.DeserializeObject<Rootobject>(responseString);
                 //dgJson.ItemsSource = Tabulate(responseString);
 
             }
