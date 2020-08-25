@@ -1,0 +1,24 @@
+﻿<Window x:Class="DEMO_Buscar_Cedula.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DEMO_Buscar_Cedula"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="Black">
+        <StackPanel Orientation="Vertical" Margin="15">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Json:" Foreground="White"/>
+                <TextBox x:Name="txtUrl" Width="600" Margin="3" TextWrapping="Wrap"/>
+                <Button x:Name="btnConvert" Content="Convertir" Width="74" Click="btnConvert_ClickAsync"/>
+            </StackPanel>
+
+            <Grid>
+                <DataGrid x:Name="dgJson" Height="200" Margin="15">
+                    
+                </DataGrid>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
