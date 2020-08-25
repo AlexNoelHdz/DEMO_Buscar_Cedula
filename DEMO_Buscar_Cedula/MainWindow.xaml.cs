@@ -28,32 +28,10 @@ namespace DEMO_Buscar_Cedula
 
         public class Rootobject
         {
-            public Responseheader responseHeader { get; set; }
             public Response response { get; set; }
         }
-
-        public class Responseheader
-        {
-            public int status { get; set; }
-            public int QTime { get; set; }
-            public Params _params { get; set; }
-        }
-
-        public class Params
-        {
-            public string facet { get; set; }
-            public string fl { get; set; }
-            public string indent { get; set; }
-            public string start { get; set; }
-            public string q { get; set; }
-            public string wt { get; set; }
-            public string rows { get; set; }
-        }
-
         public class Response
         {
-            public int numFound { get; set; }
-            public int start { get; set; }
             public float maxScore { get; set; }
             public Doc[] docs { get; set; }
         }
